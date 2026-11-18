@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tool Adoption Forecast</title>
+<meta name="description" content="Fictional demo: will a new AI assistant reach 120 weekly active users by week four?">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="head">
+    <p class="eyebrow">Fictional demo · Northwind Co., 200 eligible employees</p>
+    <h1>Tool Adoption Forecast</h1>
+    <p class="lede">Will the new AI assistant reach <strong>120 weekly active users</strong> by the end of week four, and could better repeat use help? Today, at the end of week two, 140 people have tried it and 80 used it this week.</p>
+  </header>
+
+  <section class="kpis" aria-label="Forecast summary" aria-live="polite">
+    <div class="kpi"><p class="kpi-label">Projected week-four active users</p><p class="kpi-value" id="k-proj">–</p><p class="kpi-sub" id="k-proj-sub">&nbsp;</p></div>
+    <div class="kpi"><p class="kpi-label">Gap to goal of 120</p><p class="kpi-value" id="k-gap">–</p><p class="kpi-sub" id="k-gap-sub">&nbsp;</p></div>
+    <div class="kpi"><p class="kpi-label">Estimated chance of hitting goal</p><p class="kpi-value accent" id="k-prob">–</p><p class="kpi-sub">share of simulated futures at 120+</p></div>
+  </section>
+
+  <section class="panel" aria-labelledby="chart-title">
+    <h2 id="chart-title">Weekly active users: actual vs. projected</h2>
+    <div class="controls">
+      <span class="controls-label" id="scen-label">Choose a scenario</span>
+      <div class="seg" role="group" aria-labelledby="scen-label">
+        <button type="button" id="btn-baseline" aria-pressed="true">Baseline</button>
+        <button type="button" id="btn-improved" aria-pressed="false">Improved Repeat Use</button>
+      </div>
+      <p class="assump" id="assump"></p>
+    </div>
+
+    <div class="chart" id="chart"></div>
+    <div class="tip" id="tip" role="status" hidden></div>
+
+    <ul class="legend" aria-label="Chart legend">
+      <li><span class="sw sw-actual"></span>Actual</li>
+      <li><span class="sw sw-proj"></span>Projected (median)</li>
+      <li><span class="sw sw-band"></span>80% prediction interval</li>
+      <li><span class="sw sw-goal"></span>Goal (120)</li>
+      <li id="leg-base" hidden><span class="sw sw-ghost"></span>Baseline projection</li>
+    </ul>
+
+    <p class="takeaway" id="takeaway"></p>
+
+    <details class="table-view">
+      <summary>View data as a table</summary>
+      <div class="table-scroll"><table id="data-table"></table></div>
+    </details>
+  </section>
+
+  <footer class="foot">
+    <p><strong>All data here is fictional.</strong> The company, headcount and usage numbers are invented for this demo.</p>
+    <p><strong>The probability depends on the assumptions.</strong> It is the share of 4,000 fixed-seed simulated futures in which week-four active users reach 120. Each person moves between never tried, inactive and active: 30% of never-tried people start each week (first-time activation), 18% of inactive people return (reactivation), and the retention rate changes only between the two scenarios. Assumptions are illustrative, not fitted to real data; different assumptions would give a different chance.</p>
+  </footer>
+</main>
+<script src="sim.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
